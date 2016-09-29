@@ -1,0 +1,39 @@
+<style>
+  table {
+      border-collapse: collapse;
+      width: 100%;
+  }
+
+  td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+  }
+</style>
+<%= render "shared/header" %>
+<h4> Users List</h4>
+<table>
+  <tr>
+    <th>Photo</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Email</th>
+    <th>Gender</th>   
+    <th>Birthdate</th>  
+    <th>Bio</th>
+    <th>Location</th>
+  </tr>
+
+  <% @users.each do |user| %>
+    <tr>
+    <td><%= image_tag user.uimage || user.avatar_url(:sm) || "" %></td>
+    <td><%= user.first_name %></td>
+    <td><%= user.last_name %></td>
+    <td><%= user.email %></td>
+    <td><%= user.gender.capitalize if user.gender %></td>
+    <td><%= user.birth_date %></td>    
+    <td><%= user.bio %></td>
+    <td><%= user.location %></td>
+    </tr>
+  <% end%>  
+</table>
+<%= render "shared/footer" %>
