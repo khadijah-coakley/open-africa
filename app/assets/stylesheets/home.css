@@ -8,3 +8,5 @@
   margin-bottom: 24px;
   border-radius: 0;
 }
+
+.parallax > .background-image-holder, .parallax .slides li > .background-image-holder {height:141vh !important;}
