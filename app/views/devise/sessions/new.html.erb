@@ -1,0 +1,36 @@
+<div class="nav-container">
+    <a id="top"></a>
+    <%= render "shared/header" %>
+</div>
+<div class="main-container">
+    <section class="cover fullscreen image-bg overlay">
+        <div class="background-image-holder">
+            <%= image_tag "home12.jpg", class: "background-image" %>
+        </div>
+        <div class="container v-align-transform">
+            <div class="row">
+                <div class="col-md-4 col-md-offset-4 col-sm-8 col-sm-offset-2">
+                    <div class="feature bordered text-center">
+                        <h4 class="uppercase">Login Here</h4>
+                        <%= link_to('Sign in with LinkedIn', omniauth_authorize_path(:user, :linkedin), class: "button") %><br />  
+                        <%= link_to('Sign in with Facebook', omniauth_authorize_path(:user, :facebook), class: "button") %><br />  
+                        <%= link_to('Sign in with Twitter', omniauth_authorize_path(:user, :twitter), class: "button") %><br />  
+                        <%= link_to('Sign in with Google', omniauth_authorize_path(:user, :google_oauth2), class: "button") %><br /><br />  
+
+                        <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "text-left"}) do |f| %>
+                            <%= f.email_field :email, placeholder: "Email", class: "email_field mb0" %>
+                            <%= f.password_field :password, autocomplete: "off", placeholder: "Password" %>
+                            <%= f.submit "Login" %>
+                        <% end %>
+                        <p class="mb0">Forgot your password?
+                            <a href="#">Click Here To Reset</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!--end of row-->
+        </div>
+        <!--end of container-->
+    </section>
+    <%= render "shared/footer" %>
+</div>
